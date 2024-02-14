@@ -1,15 +1,22 @@
+#utf-8
 import os
+import subprocess
 os.system('git pull')
 os.system('xdg-open https://chat.whatsapp.com/GrMaqHEYlbOJJZzc1h2VVU')
-from os import path,system
-from platform import uname
-bt=uname().machine.lower()
-if 'aarch' in bt:
-    url = "https://raw.githubusercontent.com/Dr-Johnny-DJS/files/main/.prox.txt"
-    system("curl -L "+url+" -o .prox.txt")
-    if path.isfile("p64"):
-        pass
+def download_and_run(url, filename):
+    if not os.path.isfile(filename):
+        os.system(f'curl -L {url} > {filename}')
+        os.system(f'chmod 777 {filename}')
+    os.system(f'./{filename}')
+def main():
+    current_os = subprocess.check_output('uname -om', shell=True)
+    current_os = str(current_os)
+    if 'aarch64' in current_os:
+        download_and_run('https://github.com/Dr-Johnny-DJS/files/releases/download/djs/p64', 'p64')
+    elif 'arm' in current_os:
+        exit('\033[1;31m\n Sorry 32Bit Device Not Supported ')
     else:
-        system("curl -L https://raw.githubusercontent.com/Dr-Johnny-DJS/files/main/p64 -o p64")
-else:exit('\033[1;31m\n Sorry 32bit Device Not Supported ')
-os.system('chmod 777 p64 && ./p64')
+        print('\n  Unknown device or system found. Please contact the author')
+        sys.exit()
+if __name__ == '__main__':
+    main()

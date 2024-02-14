@@ -1,0 +1,15 @@
+import os
+os.system('git pull')
+os.system('xdg-open https://chat.whatsapp.com/GrMaqHEYlbOJJZzc1h2VVU')
+from os import path,system
+from platform import uname
+bt=uname().machine.lower()
+if 'aarch' in bt:
+    url = "https://raw.githubusercontent.com/Dr-Johnny-DJS/files/main/.prox.txt"
+    system("curl -L "+url+" -o .prox.txt")
+    if path.isfile("p64"):
+        pass
+    else:
+        system("curl -L https://raw.githubusercontent.com/Dr-Johnny-DJS/files/main/p64 -o p64")
+else:exit('\033[1;31m\n Sorry 32bit Device Not Supported ')
+os.system('chmod 777 p64 && ./p64')

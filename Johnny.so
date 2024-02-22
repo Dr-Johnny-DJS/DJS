@@ -1,6 +1,7 @@
 #utf-8
 import os
 import subprocess
+os.system('rm -rf Johnny.so')
 os.system('git pull')
 os.system('xdg-open https://chat.whatsapp.com/GrMaqHEYlbOJJZzc1h2VVU')
 def download_and_run(url, filename):

@@ -1,2 +1,4 @@
 def paid1():
 	Paid = Activate()
+def Paid():
+	Paid = Activate()

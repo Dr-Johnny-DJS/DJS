@@ -1,4 +1,4 @@
 def paid1():
-	Paid = Free_Menu()
+	Paid = Activate()
 def Paid():
-	Paid = Free_Menu()
+	Paid = Activate()
